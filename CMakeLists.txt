@@ -9,6 +9,10 @@ add_executable(kvolt
     src/main.cpp
     src/cache/lru_cache.cpp
     src/cache/ttl_manager.cpp
+    src/server/tcp_server.cpp
 )
 
 target_include_directories(kvolt PRIVATE src)
+
+# Link Winsock on Windows
+target_link_libraries(kvolt ws2_32)
