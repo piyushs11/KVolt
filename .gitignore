@@ -1,0 +1,30 @@
+# Build directory
+build/
+
+# Compiled binaries
+*.exe
+*.out
+*.o
+*.obj
+
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+MinGW Makefiles
+
+# VS Code
+.vscode/
+
+# CLion
+.idea/
+cmake-build-*/
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Object files
+*.obj
+*.pdb
