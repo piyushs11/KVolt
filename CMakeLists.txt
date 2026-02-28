@@ -8,6 +8,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 add_executable(kvolt
     src/main.cpp
     src/cache/lru_cache.cpp
+    src/cache/ttl_manager.cpp
 )
 
 target_include_directories(kvolt PRIVATE src)
