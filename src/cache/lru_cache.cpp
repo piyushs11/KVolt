@@ -148,6 +148,23 @@ void LRUCache::evict_expired() {
     }
 }
 
+void LRUCache::clear() {
+    std::unique_lock<std::shared_mutex> lock(mutex_);
+
+    // Delete all nodes except dummy head and tail
+    Node* curr = head_->next;
+    while (curr != tail_) {
+        Node* next = curr->next;
+        delete curr;
+        curr = next;
+    }
+
+    // Reset list
+    head_->next = tail_;
+    tail_->prev = head_;
+    map_.clear();
+}
+
 size_t LRUCache::size() {
     std::shared_lock<std::shared_mutex> lock(mutex_);
     return map_.size();

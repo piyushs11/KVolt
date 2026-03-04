@@ -8,12 +8,16 @@ def send_command(sock, command):
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect(("127.0.0.1", 6379))
 
-send_command(s, "SET name John")
-send_command(s, "GET name")
-send_command(s, "SET session abc123 EX 5")
-send_command(s, "GET session")
-send_command(s, "DEL name")
-send_command(s, "GET name")
+# Test PING
+send_command(s, "PING")
+
+# Test FLUSH
+send_command(s, "SET key1 value1")
+send_command(s, "SET key2 value2")
+send_command(s, "SET key3 value3")
 send_command(s, "SIZE")
+send_command(s, "FLUSH")
+send_command(s, "SIZE")
+send_command(s, "GET key1")
 
 s.close()

@@ -175,6 +175,17 @@ std::string TCPServer::process_command(const std::string& command) {
         return std::to_string(cache_.size());
     }
 
+    // PING — health check
+    if (cmd == "PING") {
+        return "PONG";
+    }
+
+    // FLUSH — clear all keys
+    if (cmd == "FLUSH") {
+        cache_.clear();
+        return "OK";
+    }
+
     return "ERROR unknown command: " + tokens[0];
 }
 

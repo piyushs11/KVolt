@@ -34,6 +34,8 @@ public:
 
     // Remove all expired keys — called by background thread
     void evict_expired();
+    
+    void clear();
 
     // Current number of keys
     size_t size();
