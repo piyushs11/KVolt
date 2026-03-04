@@ -28,3 +28,5 @@ Desktop.ini
 # Object files
 *.obj
 *.pdb
+
+.git/
